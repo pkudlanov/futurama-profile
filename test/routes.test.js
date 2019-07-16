@@ -23,4 +23,14 @@ describe('testing all the routes', () => {
                 ]);
             });
     });
+
+    it('gets a profile by name with GET/:name', () => {
+        return request(app)
+            .get('/api/v1/profile/Pavel%20Kudlanov')
+            .then(res => {
+                expect(res.body).toEqual(
+                    { name: 'Pavel Kudlanov', character: 'Bender' }
+                );
+            });
+    });
 });
