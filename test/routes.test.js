@@ -36,7 +36,7 @@ describe('testing all the routes', () => {
     });
 
     it('updates the users favorite character with PATCH', () => {
-        const newCharacter = { character: 'Bender' };
+        const newCharacter = { character: 'Amy' };
 
         return request(app)
             .patch('/api/v1/profile/Pavel%20Kudlanov')
