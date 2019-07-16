@@ -9,7 +9,8 @@ describe('testing all the routes', () => {
             .then(res => {
                 expect(res.body).toEqual({
                     name: 'Pavel Kudlanov',
-                    character: 'Bender'
+                    character: 'Bender',
+                    quote: expect.any(Object)
                 });
             });
     });
