@@ -13,4 +13,14 @@ describe('testing all the routes', () => {
                 });
             });
     });
+    
+    it('gets a list of all profiles with GET', () => {
+        return request(app)
+            .get('/api/v1/profile')
+            .then(res => {
+                expect(res.body).toEqual([
+                    { name: 'Pavel Kudlanov', character: 'Bender' }
+                ]);
+            });
+    });
 });
