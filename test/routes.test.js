@@ -19,9 +19,11 @@ describe('testing all the routes', () => {
         return request(app)
             .get('/api/v1/profile')
             .then(res => {
-                expect(res.body).toEqual([
-                    { name: 'Pavel Kudlanov', character: 'Bender', quote: expect.any(Object) }
-                ]);
+                expect(res.body).toEqual([{
+                    name: 'Pavel Kudlanov',
+                    character: 'Bender',
+                    quote: expect.any(Object)
+                }]);
             });
     });
 
@@ -29,9 +31,11 @@ describe('testing all the routes', () => {
         return request(app)
             .get('/api/v1/profile/Pavel%20Kudlanov')
             .then(res => {
-                expect(res.body).toEqual(
-                    { name: 'Pavel Kudlanov', character: 'Bender', quote: expect.any(Object) }
-                );
+                expect(res.body).toEqual({
+                    name: 'Pavel Kudlanov',
+                    character: 'Bender',
+                    quote: expect.any(Object)
+                });
             });
     });
 
@@ -42,9 +46,23 @@ describe('testing all the routes', () => {
             .patch('/api/v1/profile/Pavel%20Kudlanov')
             .send(newCharacter)
             .then(res => {
-                expect(res.body).toEqual(
-                    { name: 'Pavel Kudlanov', character: 'Amy', quote: expect.any(Object) }
-                );
+                expect(res.body).toEqual({
+                    name: 'Pavel Kudlanov',
+                    character: 'Amy',
+                    quote: expect.any(Object)
+                });
+            });
+    });
+
+    it('deletes a profile by id', () => {
+        return request(app)
+            .delete('/api/v1/profile/Pavel%20Kudlanov')
+            .then(res => {
+                expect(res.body).toEqual({
+                    name: 'Pavel Kudlanov',
+                    character: 'Amy',
+                    quote: expect.any(Object)
+                });
             });
     });
 });
