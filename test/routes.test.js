@@ -34,4 +34,17 @@ describe('testing all the routes', () => {
                 );
             });
     });
+
+    it('updates the users favorite character with PATCH', () => {
+        const newCharacter = { character: 'Bender' };
+
+        return request(app)
+            .patch('/api/v1/profile/Pavel%20Kudlanov')
+            .send(newCharacter)
+            .then(res => {
+                expect(res.body).toEqual(
+                    { name: 'Pavel Kudlanov', character: 'Amy', quote: expect.any(Object) }
+                );
+            });
+    });
 });
