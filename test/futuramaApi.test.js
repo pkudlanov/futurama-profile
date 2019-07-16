@@ -7,14 +7,14 @@ describe('getRandomQuote test', () => {
 
         const result = getRandomQuote(count, char);
 
-        expect(result).toEqual({
+        expect(result).toEqual([{
             character: 'Bender',
-            image: expect.any(String),
-            quote: expect.any(String)
+            quote: expect.any(String),
+            image: expect.any(String)
         }, {
             character: 'Bender',
-            image: expect.any(String),
-            quote: expect.any(String)
-        });
+            quote: expect.any(String),
+            image: expect.any(String)
+        }]);
     });
 });
