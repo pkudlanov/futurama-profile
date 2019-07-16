@@ -20,7 +20,7 @@ describe('testing all the routes', () => {
             .get('/api/v1/profile')
             .then(res => {
                 expect(res.body).toEqual([
-                    { name: 'Pavel Kudlanov', character: 'Bender' }
+                    { name: 'Pavel Kudlanov', character: 'Bender', quote: expect.any(Object) }
                 ]);
             });
     });
@@ -30,7 +30,7 @@ describe('testing all the routes', () => {
             .get('/api/v1/profile/Pavel%20Kudlanov')
             .then(res => {
                 expect(res.body).toEqual(
-                    { name: 'Pavel Kudlanov', character: 'Bender' }
+                    { name: 'Pavel Kudlanov', character: 'Bender', quote: expect.any(Object) }
                 );
             });
     });
